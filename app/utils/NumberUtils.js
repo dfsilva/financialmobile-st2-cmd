@@ -1,5 +1,4 @@
 Ext.define("FinancialMobile.utils.NumberUtils", {
-	extend : "Object",
 	singleton : true,
 
 	/**

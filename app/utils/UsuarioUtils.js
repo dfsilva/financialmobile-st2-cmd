@@ -8,10 +8,12 @@ Ext.define('FinancialMobile.utils.UsuarioUtils',{
 
 		setUsuarioLogado : function(usuario, callback) {
 			this.usuarioLogado = usuario;
+			
 			this.apiParams = {
 					id_key: this.usuarioLogado.idUsuario,
-					key: this.usuarioLogado.senhaUsuario,
-			}
+					key: this.usuarioLogado.senhaUsuario
+			};
+
 			this.carregarCategoriasUsuario(callback);
 		},
 

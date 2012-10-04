@@ -109,9 +109,8 @@ Ext.define('FinancialMobile.controller.DespesaReceita', {
     },
 
     voltar: function(btn){
-    	console.log('voltar');
-    	this.getDespesaReceita().getActiveItem().reset();
-    	this.getPainel().setActiveItem(0);
+        var btnHome = this.getPainel().down('#btnHome');
+        btnHome.fireEvent('tap', btnHome);
     },
     
     cancelar: function(btn){

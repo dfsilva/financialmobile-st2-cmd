@@ -39,11 +39,8 @@
             "path": "touch/sencha-touch.js"
         },
         {
-            "path": "app/utils/Financial.js"
-        },
-        {
             "path": "app.js",
-            "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
+            "bundle": true,
             "update": "delta"
         }
     ],

@@ -45,7 +45,7 @@ Ext.define('FinancialMobile.controller.Principal', {
     },
     
     sair: function(btn){
-    	FinancialMobile.Msg.confirm('Confirma sair da aplicação?', function(btnid){
+    	FinancialMobile.Msg.confirm('Confirma sair da aplica&ccedil;&atilde;o?', function(btnid){
     		if(btnid !== 'cancel'){
     			console.log('saindo...'+btnid);
     			
@@ -54,8 +54,8 @@ Ext.define('FinancialMobile.controller.Principal', {
     			uStore.sync();
     			
     			catStore = Ext.data.StoreManager.lookup('categoriaStore');
-				catStore.removeAll();
-				catStore.sync();
+  				catStore.removeAll();
+  				catStore.sync();
 				
 				 Ext.Viewport.removeAll();
 				 var p = Ext.create('FinancialMobile.view.usuario.Login');
@@ -100,16 +100,10 @@ Ext.define('FinancialMobile.controller.Principal', {
   			callback : function(data, obj2, obj3) {
   				var listaReceitasDespesas = this.getPainel().down('list[name="receitas_despesas_grid"]');
   				var graficoReceitaDespesas = this.getPainel().down('chart[name="chart_despesas_receitas"]');
-  				
-  				
   				Ext.Viewport.setMasked(false);
+  				listaReceitasDespesas.getStore().setData(data);
+  				graficoReceitaDespesas.getStore().setData(data);
 
-  				listaReceitasDespesas._store.setData(data);
-  				
-  				console.log('Data');
-  				console.log(data);
-  				graficoReceitaDespesas._store.setData(data);
-  				graficoReceitaDespesas.redraw(true);
   			}
 		  });
     }

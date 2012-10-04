@@ -1,5 +1,4 @@
 Ext.define("FinancialMobile.utils.DateUtils", {
-			extend : "Object",
 			singleton : true,
 			
 			formatarDataMysql : function(data) {

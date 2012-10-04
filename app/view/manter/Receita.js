@@ -2,11 +2,10 @@ Ext.define("FinancialMobile.view.manter.Receita", {
     extend : "Ext.form.Panel",
     alias: ['widget.receita'],
     requires: ['Ext.dataview.List', 'Ext.field.Hidden', 'Ext.field.Select', 'Ext.field.DatePicker', 'Ext.field.Number'],
-
     config: {
         items:[{
             xtype: 'fieldset',
-            instructions: 'Entre com as informações da Receita',
+            instructions: 'Entre com as informa&ccedil;&otilde;es da Receita',
             defaults: {
                 required: true,
                 labelAlign: 'left',
@@ -14,7 +13,7 @@ Ext.define("FinancialMobile.view.manter.Receita", {
             },
             items: [{
                         xtype : 'hiddenfield',
-                        name  : 'idEntrada',
+                        name  : 'idEntrada'
                     },{
                         label      : 'Descri&ccedil;&atilde;o',
                         name       : 'descricao',

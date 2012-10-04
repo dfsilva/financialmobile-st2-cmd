@@ -6,7 +6,7 @@ Ext.define("FinancialMobile.view.manter.Despesa", {
     config: {
         items:[{
             xtype: 'fieldset',
-            instructions: 'Entre com as informações da despesa',
+            instructions: 'Entre com as informa&ccedil;&otilde;es da despesa',
             defaults: {
                 required: true,
                 labelAlign: 'left',
@@ -14,7 +14,7 @@ Ext.define("FinancialMobile.view.manter.Despesa", {
             },
             items: [{
                         xtype : 'hiddenfield',
-                        name : 'idCusto',
+                        name : 'idCusto'
                     },{
                         label : 'Descri&ccedil;&atilde;o',
                         name : 'descricaoGasto',

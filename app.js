@@ -1,3 +1,11 @@
+window.Financial = {
+    VERTION : "1.0.0",
+    //desenvolvimento
+    //SERVER : 'http://192.168.1.7/openshift/financial/php/new/'
+    //producao
+    SERVER : 'https://financial-diegosilva.rhcloud.com/new/'
+};
+
 //<debug>
 Ext.Loader.setPath({
     'Ext': 'touch/src',
@@ -43,14 +51,14 @@ Ext.application({
             if(records.length > 0){
                 console.log('Usuario Logado');
                 console.log(records[0].data);
-                /*
+                
                 FinancialMobile.UsuarioUtils.setUsuarioLogado(records[0].data);
 
                 Ext.fly('appLoadingIndicator').destroy();
 
                 var p = Ext.create('FinancialMobile.view.painel.Painel');
                 Ext.Viewport.add(p);
-                Ext.Viewport.setActiveItem(p);*/
+                Ext.Viewport.setActiveItem(p);
             }else{
                 console.log('Usuario nao esta logado');                
                 Ext.fly('appLoadingIndicator').destroy();

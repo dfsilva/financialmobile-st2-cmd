@@ -23,7 +23,7 @@ Ext.define("FinancialMobile.comp.MonthToolBar",{
                 	inputCls: 'font_10'
                 },
                 { 	ui: 'forward', 
-                  	text: 'Próximo', 
+                  	text: 'Pr&oacute;ximo', 
                   	flex: 1,
                   	listeners:{
                 		tap: function(btn){

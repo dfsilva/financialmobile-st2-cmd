@@ -2,7 +2,8 @@ Ext.define("FinancialMobile.view.painel.Painel",{
 	extend : 'Ext.Panel',
 	alias : [ 'widget.painel' ],
 	requires: ['Ext.chart.Chart', 'Ext.chart.series.Bar', 'Ext.chart.axis.Numeric', 'FinancialMobile.view.manter.DespesaReceita', 
-	           'FinancialMobile.utils.NumberUtils', 'Ext.XTemplate', 'FinancialMobile.comp.MonthToolBar', 'Ext.data.Store'],
+	           'FinancialMobile.utils.NumberUtils', 'Ext.XTemplate', 'FinancialMobile.comp.MonthToolBar', 'Ext.data.Store',
+	           'Ext.chart.axis.Category','Ext.SegmentedButton','Ext.draw.modifier.Highlight'],
 	config : {
 	    layout: {
             type: 'card',
@@ -19,59 +20,66 @@ Ext.define("FinancialMobile.view.painel.Painel",{
 							layout : 'fit',
 							flex : 2,
 							items : {
-								xtype : 'chart',
-								name : 'chart_despesas_receitas',
-								layout: 'auto',
-								store : Ext.create("Ext.data.Store",{
+				                xtype: 'chart',
+				                name : 'chart_despesas_receitas',
+				                store: Ext.create("Ext.data.Store",{
 											fields : ['name', 'valor']
 										}),
-								animate : true,
-								shadow: false,
-							 series: [
-						                {
-						                    type: 'bar',
-						                    renderer: function (sprite, storeItem, barAttr, i, store) {
-						                        if(storeItem.get('name') === 'Receitas'){
-						                        	barAttr.fill = '#00C906';
-						                        }else if(storeItem.get('name') === 'Despesas'){
-						                        	barAttr.fill = '#FF0202';
-						                        }else if(storeItem.get('name') === 'Diferenca'){
-						                        	if(storeItem.get('valor') > 0){
-														barAttr.fill = '#00C906';
-						                        	}else{
-						                        		barAttr.fill = '#FF0202';
-						                        	}
-						                        }
-						                        return barAttr;
-						                    },
-						                    xField: 'name',
-						                    yField: ['valor']//,
-						                    //axis: 'bottom',
-						                   // highlight: true,
-						                    //showInLegend: true,
-						                    //label: 'valor'
-						                }
-						            ],
-						        axes: [
-					                {
-					                    type: 'numeric',
-					                    position: 'left',
-					                    fields: ['valor'],
-					                    minimum: 0,
-				                        maximum: 10000,
-					                    label: {
-					                        renderer: function (v) {
-					                            return v.toFixed(0);
+				                background: 'white',
+				                colors:["#FF0202"],
+				                flipXY: true,
+				                series: [
+				                    {
+				                        type: 'bar',				             
+				                        renderer : function (sprite, storeItem, barAttr, i, store) {				                        	
+					                        if(storeItem.get('name') === 'Receitas'){
+					                        	barAttr.fill = '#00C906';
+					                        }else if(storeItem.get('name') === 'Despesas'){
+					                        	barAttr.fill = '#FF0202';
+					                        }else if(storeItem.get('name') === 'Diferenca'){
+					                        	if(storeItem.get('valor') > 0){
+													barAttr.fill = '#00C906';
+					                        	}else{
+					                        		barAttr.fill = '#FF0202';
+					                        	}
 					                        }
-					                    }
-					                },
-					                {
-					                    type: 'category',
-					                    position: 'bottom',
-					                    fields: 'name'
-					                }
-					            ]
-							}
+					                      return barAttr;
+					                    },
+				                        xField: 'name',
+				                        yField: ['valor'],
+				                        highlightCfg: {
+				                            strokeStyle: 'red',
+				                            lineWidth: 3
+				                        },
+				                        style: {
+				                            stroke: 'rgb(40,40,40)',
+				                            maxBarWidth: 30
+				                        }
+				                    }
+				                ],
+				                axes: [
+				                    {
+				                        type: 'numeric',
+				                        position: 'bottom',
+				                        fields: ['valor'],
+				                        grid: {
+				                            odd: {
+				                                fill: '#e8e8e8'
+				                            }
+				                        },
+				                        label: {
+				                            rotate: {
+				                                degrees: -30
+				                            }
+				                        }
+				                    },
+				                    {
+				                        type: 'category',
+				                        position: 'left',
+				                        fields: 'name'
+				                    }
+				                ]
+				            }
 						},{
 							xtype : 'list',
 							flex : 1,
@@ -115,7 +123,8 @@ Ext.define("FinancialMobile.view.painel.Painel",{
 	                        			iconMask: true, 
 					    				iconCls : 'home',
 					    				action: 'principal',
-					    				pressed: true
+					    				pressed: true,
+					    				itemId: 'btnHome'
 				    				}, {
 				    					iconMask: true, 
 				    					iconCls : 'add',

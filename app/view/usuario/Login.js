@@ -6,7 +6,7 @@ Ext.define("FinancialMobile.view.usuario.Login", {
 	config: {
 		layout: 'vbox',
 		items: [{
-		            html:'<img src="./resources/img/logo.png"/>',
+		            html:'<img src="./resources/images/logo.png"/>',
 		            flex: 1,
 		            cls: 'login'
 		        },{
